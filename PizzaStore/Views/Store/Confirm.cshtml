@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Confirm";
+}
+
+<h2>Confirm</h2>
+
+<h3>Thank you for your order</h3>
+
+<h3>Your amount is: $ @ViewBag.total</h3>
+@{
+    var tax = ViewBag.total * 0.06;
+    var all = tax + ViewBag.total;
+}
+<h3>Tax: @tax</h3>
+<h3>Total: $ @all</h3>
