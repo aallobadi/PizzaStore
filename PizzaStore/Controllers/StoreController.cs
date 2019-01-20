@@ -118,9 +118,6 @@ namespace PizzaStore.Controllers
 
             ViewBag.total = total;
 
-            var tax = total * 0.06;
-
-            ViewBag.tax = tax;
 
             return View();
         }
