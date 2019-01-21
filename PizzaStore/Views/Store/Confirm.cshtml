@@ -6,9 +6,10 @@
 <h2>Confirm</h2>
 
 <h3>Thank you for your order</h3>
-<label>Your pizza size is @ViewBag.size</label>
-
-<label>Your choice of toppings are: </label>
+<label>Your pizza size is : </label>
+<label>@ViewBag.size</label>
+<br/>
+<label>Your choice of toppings are : </label>
 @{
     foreach (var top in ViewBag.toppings)
     {

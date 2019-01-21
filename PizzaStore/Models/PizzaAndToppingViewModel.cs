@@ -8,8 +8,6 @@ namespace PizzaStore.Models
 {
     public class PizzaAndToppingViewModel
     {
-        public IList<SelectListItem> SelectedToppings { get; set; }
-
         public Pizza Pizza { get; set; }
         public List<Topping> Topping { get; set; }
     }

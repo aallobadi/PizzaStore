@@ -7,16 +7,9 @@ namespace PizzaStore.Models
 {
     public class Pizza
     {
-
         public string Name { get; set; }
-
         public Size Size { get; set; }
-
-        //public decimal Price { get; set; }
-
         public List<Size> SizeList { set; get; }
-        public enumSizeOfPizza enumSize { set; get; }
-
     }
 
     public class Size

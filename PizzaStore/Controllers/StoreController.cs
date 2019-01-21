@@ -12,8 +12,6 @@ namespace PizzaStore.Controllers
     public class StoreController : Controller
     {
 
-       
-
         // GET: Store
         public ActionResult Index()
         {
@@ -60,9 +58,7 @@ namespace PizzaStore.Controllers
                 },
             };
             
-
             var model = new PizzaAndToppingViewModel { Pizza = pizza, Topping = listTopping};
-
 
             return View(model);
         }
@@ -70,11 +66,9 @@ namespace PizzaStore.Controllers
         [HttpPost]
         public ActionResult Confirm(FormCollection frm)
         {
-
             var total = 0.0;
-
-
             string size = frm["size"];
+
             if (size == null)
             {
                 size = "small";
@@ -94,12 +88,9 @@ namespace PizzaStore.Controllers
                     ViewBag.size = "large";
                     break;
             }
-
-           // Session["total"] = total;
             
-           var toppings = string.Join(",", frm["SelectedToppings"]);
+            var toppings = string.Join(",", frm["SelectedToppings"]);
             ViewBag.toppings = toppings;
-
 
             if (toppings.Contains("Italian Sausage"))
             {
