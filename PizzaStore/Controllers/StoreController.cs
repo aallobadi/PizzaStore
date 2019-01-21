@@ -73,6 +73,7 @@ namespace PizzaStore.Controllers
 
             var total = 0.0;
 
+
             string size = frm["size"];
             if (size == null)
             {
@@ -82,18 +83,22 @@ namespace PizzaStore.Controllers
             {
                 case "small":
                     total += 6.5;
+                    ViewBag.size = "small";
                     break;
                 case "medium":
                     total += 8.8;
+                    ViewBag.size = "medium";
                     break;
                 case "large":
                     total += 11.11;
+                    ViewBag.size = "large";
                     break;
             }
 
            // Session["total"] = total;
             
            var toppings = string.Join(",", frm["SelectedToppings"]);
+            ViewBag.toppings = toppings;
 
 
             if (toppings.Contains("Italian Sausage"))

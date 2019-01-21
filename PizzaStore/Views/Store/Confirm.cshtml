@@ -6,6 +6,15 @@
 <h2>Confirm</h2>
 
 <h3>Thank you for your order</h3>
+<label>Your pizza size is @ViewBag.size</label>
+
+<label>Your choice of toppings are: </label>
+@{
+    foreach (var top in ViewBag.toppings)
+    {
+        @top.ToString();
+    }
+}
 
 <h3>Your amount is: $ @ViewBag.total</h3>
 @{
