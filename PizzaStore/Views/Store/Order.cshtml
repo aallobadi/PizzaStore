@@ -32,14 +32,14 @@
 
                 <div class="form-group">
                     <div class="col-sm-10">
-                        Small $6.5 @Html.RadioButton("Size", "small", true)
-                        Medium $8.8 @Html.RadioButton("Size", "medium")
+                        Small $6.5 @Html.RadioButton("Size", "small", true) &nbsp
+                        Medium $8.8 @Html.RadioButton("Size", "medium") &nbsp
                         Large $11.11 @Html.RadioButton("Size", "large")
                     </div>
                 </div>
 
                 <dt>
-                    <label>Tooping:  </label>
+                    <label>Tooping:  </label> &nbsp
                 </dt>
 
                 <div class="form-group">
@@ -47,11 +47,10 @@
                     <div class="checkbox" id="top">
                         @foreach (var top in Model.Topping)
                         {
-                            <label>
-                                <dt>
-                                    <input name="SelectedToppings" type="checkbox" value="@top.Name"> @Html.Label(top.Name) $ @top.Price
-                                </dt>
-                            </label>
+                        <label>
+                            <input name="SelectedToppings" type="checkbox" value="@top.Name"> @top.Name $ @top.Price &nbsp
+
+                        </label>
 
                         }
 
