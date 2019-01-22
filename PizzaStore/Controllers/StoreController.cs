@@ -48,6 +48,7 @@ namespace PizzaStore.Controllers
             },
         };
 
+
         // GET: Store
         public ActionResult Index()
         {
@@ -57,9 +58,7 @@ namespace PizzaStore.Controllers
         // GET: Store/Order
         public ActionResult Order()
         {
-            
-            
-            var model = new PizzaAndToppingViewModel { Pizza = pizza, Topping = listTopping};
+            var model = new PizzaAndToppingViewModel { Pizza = pizza, Topping = listTopping };
 
             return View(model);
         }
@@ -90,7 +89,7 @@ namespace PizzaStore.Controllers
                     break;
             }
             
-            var toppings = string.Join(",", frm["SelectedToppings"]);
+            var toppings = string.Join(" ", frm["SelectedToppings"]);
             ViewBag.toppings = toppings;
 
             if (toppings.Contains("Italian Sausage"))
