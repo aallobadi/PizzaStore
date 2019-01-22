@@ -11,7 +11,6 @@ namespace PizzaStore.Controllers
 {
     public class StoreController : Controller
     {
-
         // GET: Store
         public ActionResult Index()
         {
@@ -29,8 +28,6 @@ namespace PizzaStore.Controllers
                       new Size{Type = "Small", Price = 6.5},
                       new Size{Type = "Medium", Price = 8.8},
                       new Size{Type = "Large", Price = 11.11}
-
-
                   }
             };
 
@@ -113,7 +110,6 @@ namespace PizzaStore.Controllers
             }
 
             ViewBag.total = total;
-
 
             return View();
         }
