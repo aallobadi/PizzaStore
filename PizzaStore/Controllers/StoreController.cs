@@ -11,6 +11,43 @@ namespace PizzaStore.Controllers
 {
     public class StoreController : Controller
     {
+
+        Pizza pizza = new Pizza
+        {
+            Name = "Ham Pizza",
+
+            SizeList = new List<Size>
+            {
+                new Size{Type = "Small", Price = 6.5},
+                new Size{Type = "Medium", Price = 8.8},
+                new Size{Type = "Large", Price = 11.11}
+            }
+        };
+
+        List<Topping> listTopping = new List<Topping>()
+        {
+            new Topping()
+            {
+                Name = "Italian Sausage",
+                Price = 3.33
+            },
+            new Topping()
+            {
+                Name = "Ham",
+                Price = 6.05
+            },
+            new Topping()
+            {
+                Name = "Bacon",
+                Price = 2.99
+            },
+            new Topping()
+            {
+                Name = "Beef",
+                Price = 5.05
+            },
+        };
+
         // GET: Store
         public ActionResult Index()
         {
@@ -20,40 +57,7 @@ namespace PizzaStore.Controllers
         // GET: Store/Order
         public ActionResult Order()
         {
-            var pizza = new Pizza
-                { Name = "Ham Pizza",
-
-                  SizeList = new List<Size>
-                  {
-                      new Size{Type = "Small", Price = 6.5},
-                      new Size{Type = "Medium", Price = 8.8},
-                      new Size{Type = "Large", Price = 11.11}
-                  }
-            };
-
-            List<Topping> listTopping = new List<Topping>()
-            {
-                new Topping()
-                {
-                    Name = "Italian Sausage",
-                    Price = 3.33
-                },
-                new Topping()
-                {
-                    Name = "Ham",
-                    Price = 6.05
-                },
-                new Topping()
-                {
-                    Name = "Bacon",
-                    Price = 2.99
-                },
-                new Topping()
-                {
-                    Name = "Beef",
-                    Price = 5.05
-                },
-            };
+            
             
             var model = new PizzaAndToppingViewModel { Pizza = pizza, Topping = listTopping};
 
@@ -70,19 +74,19 @@ namespace PizzaStore.Controllers
             {
                 size = "small";
             }
+
+            ViewBag.size = size;
+
             switch (size)
             {
                 case "small":
                     total += 6.5;
-                    ViewBag.size = "small";
                     break;
                 case "medium":
                     total += 8.8;
-                    ViewBag.size = "medium";
                     break;
                 case "large":
                     total += 11.11;
-                    ViewBag.size = "large";
                     break;
             }
             
