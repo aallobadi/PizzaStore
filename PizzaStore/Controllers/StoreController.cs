@@ -47,9 +47,7 @@ namespace PizzaStore.Controllers
             },
         };
 
-        
-
-
+     
         // GET: Store
         public ActionResult Index()
         {
