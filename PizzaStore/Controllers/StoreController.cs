@@ -89,7 +89,9 @@ namespace PizzaStore.Controllers
                     break;
             }
             
-            var toppings = string.Join(" ", frm["SelectedToppings"]);
+
+            var toppings = frm["SelectedToppings"];
+
             ViewBag.toppings = toppings;
 
             if (toppings.Contains("Italian Sausage"))
