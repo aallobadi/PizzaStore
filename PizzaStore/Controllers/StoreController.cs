@@ -16,13 +16,12 @@ namespace PizzaStore.Controllers
         {
             Name = "Ham Pizza",
 
-            SizeList = new List<Size>
-            {
-                new Size{Type = "Small", Price = 6.5},
-                new Size{Type = "Medium", Price = 8.8},
-                new Size{Type = "Large", Price = 11.11}
-            }
         };
+
+        Size SmallPizza = new Size(Type: "Small", Price: 6.5);
+        Size MediumPizza = new Size(Type: "Medium", Price: 8.8);
+        Size LargePizza = new Size(Type: "Large", Price: 11.11);
+
 
         List<Topping> listTopping = new List<Topping>()
         {
@@ -48,10 +47,13 @@ namespace PizzaStore.Controllers
             },
         };
 
+        
+
 
         // GET: Store
         public ActionResult Index()
         {
+           
             return View();
         }
 
@@ -79,13 +81,13 @@ namespace PizzaStore.Controllers
             switch (size)
             {
                 case "small":
-                    total += 6.5;
+                    total += SmallPizza.Price;
                     break;
                 case "medium":
-                    total += 8.8;
+                    total += MediumPizza.Price;
                     break;
                 case "large":
-                    total += 11.11;
+                    total += LargePizza.Price;
                     break;
             }
             
