@@ -8,7 +8,6 @@ namespace PizzaStore.Models
     public class Pizza
     {
         public string Name { get; set; }
-        public Size Size { get; set; }
         public List<Size> SizeList { set; get; }
     }
 
