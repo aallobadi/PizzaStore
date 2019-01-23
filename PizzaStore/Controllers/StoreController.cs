@@ -58,9 +58,9 @@ namespace PizzaStore.Controllers
         // GET: Store/Order
         public ActionResult Order()
         {
-            var model = new PizzaAndToppingViewModel { Pizza = pizza, Toppings = listTopping };
+            var viewModel = new PizzaAndToppingViewModel { Pizza = pizza, Toppings = listTopping };
 
-            return View(model);
+            return View(viewModel);
         }
         
         [HttpPost]
