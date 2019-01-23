@@ -35,7 +35,7 @@
                 </dt>
                 <div class="form-group">
                     <div class="checkbox" id="top">
-                        @foreach (var top in Model.Topping)
+                        @foreach (var top in Model.Toppings)
                         {
                         <label>
                             <input name="SelectedToppings" type="checkbox" value="@top.Name"> @top.Name $ @top.Price &nbsp

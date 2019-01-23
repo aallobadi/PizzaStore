@@ -23,7 +23,7 @@ namespace PizzaStore.Controllers
         Size LargePizza = new Size(Type: "Large", Price: 11.11);
 
 
-        List<Topping> listTopping = new List<Topping>()
+        IEnumerable<Topping> listTopping = new List<Topping>()
         {
             new Topping()
             {
@@ -58,7 +58,7 @@ namespace PizzaStore.Controllers
         // GET: Store/Order
         public ActionResult Order()
         {
-            var model = new PizzaAndToppingViewModel { Pizza = pizza, Topping = listTopping };
+            var model = new PizzaAndToppingViewModel { Pizza = pizza, Toppings = listTopping };
 
             return View(model);
         }
