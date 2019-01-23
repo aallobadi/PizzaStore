@@ -18,9 +18,9 @@ namespace PizzaStore.Controllers
 
         };
 
-        Size SmallPizza = new Size(Type: "Small", Price: 6.5);
-        Size MediumPizza = new Size(Type: "Medium", Price: 8.8);
-        Size LargePizza = new Size(Type: "Large", Price: 11.11);
+        Size smallPizza = new Size(Type: "Small", Price: 6.5);
+        Size mediumPizza = new Size(Type: "Medium", Price: 8.8);
+        Size largePizza = new Size(Type: "Large", Price: 11.11);
 
 
         IEnumerable<Topping> listTopping = new List<Topping>()
@@ -79,13 +79,13 @@ namespace PizzaStore.Controllers
             switch (size)
             {
                 case "small":
-                    total += SmallPizza.Price;
+                    total += smallPizza.Price;
                     break;
                 case "medium":
-                    total += MediumPizza.Price;
+                    total += mediumPizza.Price;
                     break;
                 case "large":
-                    total += LargePizza.Price;
+                    total += largePizza.Price;
                     break;
             }
             
