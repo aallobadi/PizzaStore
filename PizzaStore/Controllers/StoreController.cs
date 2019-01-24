@@ -107,9 +107,5 @@ namespace PizzaStore.Controllers
             return View();
         }
 
-        public void getMenue()
-        {
-
-        }
     }
 }
