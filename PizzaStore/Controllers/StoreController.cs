@@ -86,7 +86,7 @@ namespace PizzaStore.Controllers
 
                 if (toppings.Contains("Ham"))
                 {
-                    total = total + hamTopping.Price;
+                    total += hamTopping.Price;
                 }
 
                 if (toppings.Contains("Bacon"))
