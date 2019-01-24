@@ -10,10 +10,14 @@
 <label>@ViewBag.size</label>
 <br />
 <label>Your choice of toppings are : </label>
-@{
-    foreach (var top in ViewBag.toppings)
+@if (ViewBag.toppings != null)
+{
+
     {
-            @top.ToString();     
+        foreach (var top in ViewBag.toppings)
+        {
+            @top.ToString();
+        }
     }
 }
 

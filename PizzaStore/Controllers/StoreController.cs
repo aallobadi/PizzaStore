@@ -22,32 +22,15 @@ namespace PizzaStore.Controllers
         Size mediumPizza = new Size(Type: "Medium", Price: 8.8);
         Size largePizza = new Size(Type: "Large", Price: 11.11);
 
+        static Topping hamTopping = new Topping(Name: "Ham Topping", Price: 6.5);
+        static Topping sausageTopping = new Topping(Name: "Italian Sausage", Price: 3.33);
+        static Topping baconTopping = new Topping(Name: "Bacon Topping", Price: 2.99);
+        static Topping beefTopping = new Topping(Name: "Beef Topping", Price: 5.05);
 
-        IEnumerable<Topping> listTopping = new List<Topping>()
-        {
-            new Topping()
-            {
-                Name = "Italian Sausage",
-                Price = 3.33
-            },
-            new Topping()
-            {
-                Name = "Ham",
-                Price = 6.05
-            },
-            new Topping()
-            {
-                Name = "Bacon",
-                Price = 2.99
-            },
-            new Topping()
-            {
-                Name = "Beef",
-                Price = 5.05
-            },
-        };
+        public IList<Topping> LToppings = new List<Topping>(){ hamTopping, sausageTopping, baconTopping, beefTopping };
 
-     
+        
+
         // GET: Store
         public ActionResult Index()
         {
@@ -58,7 +41,7 @@ namespace PizzaStore.Controllers
         // GET: Store/Order
         public ActionResult Order()
         {
-            var viewModel = new PizzaAndToppingViewModel { Pizza = pizza, Toppings = listTopping };
+            var viewModel = new PizzaAndToppingViewModel { Pizza = pizza, Toppings = LToppings };
 
             return View(viewModel);
         }
@@ -92,31 +75,41 @@ namespace PizzaStore.Controllers
 
             var toppings = frm["SelectedToppings"];
 
-            ViewBag.toppings = toppings;
-
-            if (toppings.Contains("Italian Sausage"))
+            if (toppings != null)
             {
-                total += 3.33;
+                ViewBag.toppings = toppings;
+
+                if (toppings.Contains("Italian Sausage"))
+                {
+                    total += sausageTopping.Price;
+                }
+
+                if (toppings.Contains("Ham"))
+                {
+                    total = total + hamTopping.Price;
+                }
+
+                if (toppings.Contains("Bacon"))
+                {
+                    total += baconTopping.Price;
+                }
+
+                if (toppings.Contains("Beef"))
+                {
+                    total += baconTopping.Price;
+                }
             }
 
-            if (toppings.Contains("Ham"))
-            {
-                total += 6.05;
-            }
-
-            if (toppings.Contains("Bacon"))
-            {
-                total += 2.99;
-            }
-
-            if (toppings.Contains("Beef"))
-            {
-                total += 5.05;
-            }
+            
 
             ViewBag.total = total;
 
             return View();
+        }
+
+        public void getMenue()
+        {
+
         }
     }
 }
