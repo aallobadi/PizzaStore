@@ -111,7 +111,7 @@ namespace PizzaStore.Controllers
             return View();
         }
 
-        public ActionResult reset()
+        public ActionResult Reset()
         {
             Session.Abandon();
 
