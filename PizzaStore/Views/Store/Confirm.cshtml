@@ -10,13 +10,14 @@
 <label>@Session["size"]</label>
 <br />
 <label>Your choice of toppings are : </label>
-@if (ViewBag.toppings != null)
-{
-
+@{string toppings = (string)Session["toppings"]; }
+    @if (toppings != null)
     {
-        foreach (var top in ViewBag.toppings)
+
         {
-            @top.ToString();
+            foreach (var top in toppings)
+            {
+                @top;
         }
     }
 }
