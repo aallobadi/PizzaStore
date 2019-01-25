@@ -10,14 +10,15 @@
 <label>@Session["size"]</label>
 <br />
 <label>Your choice of toppings are : </label>
-@{string toppings = (string)Session["toppings"]; }
-    @if (toppings != null)
+@{string toppings = (string)Session["toppings"];
+    if (toppings != null)
     {
 
         {
             foreach (var top in toppings)
             {
                 @top;
+            }
         }
     }
 }
