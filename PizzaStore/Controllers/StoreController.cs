@@ -20,10 +20,10 @@ namespace PizzaStore.Controllers
         Size mediumPizza = new Size(Type: "Medium", Price: 8.8);
         Size largePizza = new Size(Type: "Large", Price: 11.11);
         
-        static Topping hamTopping = new Topping(Name: "Ham Topping", Price: 6.5);
+        static Topping hamTopping = new Topping(Name: "Ham", Price: 6.5);
         static Topping sausageTopping = new Topping(Name: "Italian Sausage", Price: 3.33);
-        static Topping baconTopping = new Topping(Name: "Bacon Topping", Price: 2.99);
-        static Topping beefTopping = new Topping(Name: "Beef Topping", Price: 5.05);
+        static Topping baconTopping = new Topping(Name: "Bacon", Price: 2.99);
+        static Topping beefTopping = new Topping(Name: "Beef", Price: 5.05);
 
         public IList<Topping> LToppings = new List<Topping>(){ hamTopping, sausageTopping, baconTopping, beefTopping };
         private static double _TAX = 0.06; 
