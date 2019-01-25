@@ -20,7 +20,5 @@ namespace PizzaStore.Models
 
         public string Type { get; set; }
         public double Price { get; set; }
-        // https://stackoverflow.com/questions/27700101/passing-selected-value-from-the-radio-buttons-to-the-controller-in-mvc
-        public string SelectedItem { get; set; }
     }
 }
