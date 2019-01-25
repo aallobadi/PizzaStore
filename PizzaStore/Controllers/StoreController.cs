@@ -22,6 +22,8 @@ namespace PizzaStore.Controllers
         Size mediumPizza = new Size(Type: "Medium", Price: 8.8);
         Size largePizza = new Size(Type: "Large", Price: 11.11);
 
+        
+
         static Topping hamTopping = new Topping(Name: "Ham Topping", Price: 6.5);
         static Topping sausageTopping = new Topping(Name: "Italian Sausage", Price: 3.33);
         static Topping baconTopping = new Topping(Name: "Bacon Topping", Price: 2.99);
@@ -43,6 +45,10 @@ namespace PizzaStore.Controllers
         // GET: Store/Order
         public ActionResult Order()
         {
+            ViewBag.smallPizza = smallPizza;
+            ViewBag.mediumPizza = mediumPizza;
+            ViewBag.largePizza = largePizza;
+
             var viewModel = new PizzaAndToppingViewModel { Pizza = pizza, Toppings = LToppings };
 
             return View(viewModel);
@@ -58,9 +64,7 @@ namespace PizzaStore.Controllers
             {
                 size = "small";
             }
-
-            ViewBag.size = size;
-
+            
             switch (size)
             {
                 case "small":
@@ -74,7 +78,6 @@ namespace PizzaStore.Controllers
                     break;
             }
             
-
             var toppings = frm["SelectedToppings"];
 
             if (toppings != null)
@@ -105,6 +108,11 @@ namespace PizzaStore.Controllers
             var taxable = amount_before_tax * _TAX;
             var total = taxable + amount_before_tax;
 
+            // Saving the order data
+            Session["size"] = size;
+            Session["toppings"] = toppings;
+
+            // Saving the invoice data
             Session["amount_before_tax"] = amount_before_tax;
             Session["tax"] = taxable;
             Session["total"] = total;

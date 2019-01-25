@@ -9,6 +9,7 @@ namespace PizzaStore.Models
     public class PizzaAndToppingViewModel
     {
         public Pizza Pizza { get; set; }
+        public Size Size { get; set; }
         public IEnumerable<Topping> Toppings { get; set; }
     }
 }
