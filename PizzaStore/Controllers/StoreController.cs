@@ -13,7 +13,7 @@ namespace PizzaStore.Controllers
     {
         Pizza pizza = new Pizza
         {
-            Name = "Ham Pizza",
+            Name = "Margherita",
         };
 
         Size smallPizza = new Size(Type: "Small", Price: 6.5);
@@ -75,8 +75,7 @@ namespace PizzaStore.Controllers
 
             if (toppings != null)
             {
-                ViewBag.toppings = toppings;
-
+                Session["toppings"] = toppings;
                 if (toppings.Contains("Italian Sausage"))
                 {
                     amount_before_tax += sausageTopping.Price;
@@ -103,7 +102,6 @@ namespace PizzaStore.Controllers
 
             // Saving the order data
             Session["size"] = size;
-            Session["toppings"] = toppings;
 
             // Saving the invoice data
             Session["amount_before_tax"] = amount_before_tax;
