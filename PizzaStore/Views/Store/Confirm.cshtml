@@ -21,10 +21,7 @@
     }
 }
 
-<h3>Your amount is: $ @ViewBag.total</h3>
-@{
-    var tax = ViewBag.total * 0.06;
-    var all = tax + ViewBag.total;
-}
-<h3>Tax: @tax</h3>
-<h3>Total: $ @all</h3>
+<h3>Your amount is: $@Session["amount_before_tax"]</h3>
+
+<h3>Tax: @Session["tax"]</h3>
+<h3>Total: $ @Session["total"]</h3>

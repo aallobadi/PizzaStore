@@ -29,6 +29,8 @@ namespace PizzaStore.Controllers
 
         public IList<Topping> LToppings = new List<Topping>(){ hamTopping, sausageTopping, baconTopping, beefTopping };
 
+        private static double _TAX = 0.06; 
+
         
 
         // GET: Store
@@ -49,7 +51,7 @@ namespace PizzaStore.Controllers
         [HttpPost]
         public ActionResult Confirm(FormCollection frm)
         {
-            var total = 0.0;
+            var amount_before_tax = 0.0;
             string size = frm["size"];
 
             if (size == null)
@@ -62,13 +64,13 @@ namespace PizzaStore.Controllers
             switch (size)
             {
                 case "small":
-                    total += smallPizza.Price;
+                    amount_before_tax += smallPizza.Price;
                     break;
                 case "medium":
-                    total += mediumPizza.Price;
+                    amount_before_tax += mediumPizza.Price;
                     break;
                 case "large":
-                    total += largePizza.Price;
+                    amount_before_tax += largePizza.Price;
                     break;
             }
             
@@ -81,28 +83,31 @@ namespace PizzaStore.Controllers
 
                 if (toppings.Contains("Italian Sausage"))
                 {
-                    total += sausageTopping.Price;
+                    amount_before_tax += sausageTopping.Price;
                 }
 
                 if (toppings.Contains("Ham"))
                 {
-                    total += hamTopping.Price;
+                    amount_before_tax += hamTopping.Price;
                 }
 
                 if (toppings.Contains("Bacon"))
                 {
-                    total += baconTopping.Price;
+                    amount_before_tax += baconTopping.Price;
                 }
 
                 if (toppings.Contains("Beef"))
                 {
-                    total += baconTopping.Price;
+                    amount_before_tax += baconTopping.Price;
                 }
             }
 
-            
+            var taxable = amount_before_tax * _TAX;
+            var total = taxable + amount_before_tax;
 
-            ViewBag.total = total;
+            Session["amount_before_tax"] = amount_before_tax;
+            Session["tax"] = taxable;
+            Session["total"] = total;
 
             return View();
         }
