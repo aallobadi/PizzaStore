@@ -111,5 +111,12 @@ namespace PizzaStore.Controllers
             return View();
         }
 
+        public ActionResult reset()
+        {
+            Session.Abandon();
+
+            return RedirectToAction("Order", "Store");
+        }
+
     }
 }
