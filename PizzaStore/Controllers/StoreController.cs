@@ -102,6 +102,7 @@ namespace PizzaStore.Controllers
 
             // Saving the order data
             Session["size"] = size;
+            Session["pizza"] = pizza.Name;
 
             // Saving the invoice data
             Session["amount_before_tax"] = amount_before_tax;

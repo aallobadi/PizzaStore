@@ -3,27 +3,108 @@
     ViewBag.Title = "Confirm";
 }
 
+@{
+    string toppings = (string)Session["toppings"];
+    var size = Session["size"];
+}
+
 <h2>Confirm</h2>
 
 <h3>Thank you for your order</h3>
-<label>Your pizza size is : </label>
-<label>@Session["size"]</label>
-<br />
-<label>Your choice of toppings are : </label>
-@{string toppings = (string)Session["toppings"];
-    if (toppings != null)
-    {
 
-        {
-            foreach (var top in toppings)
-            {
-                @top;
-            }
-        }
-    }
-}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="invoice-title">
+                <h2>Invoice</h2><h3 class="pull-right">Order # 12345</h3>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-6">
+                    <address>
+                        <strong>Payment Method:</strong><br>
+                        Visa ending **** 4242<br>
+                        jsmith@email.com
+                    </address>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <address>
+                        <strong>Order Date:</strong><br>
+                        @DateTime.Now<br><br>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-justify">
+                @size size Pizza with following toppings options;
+                @if (toppings != null)
+                {
 
-<h3>Your amount is: $@Session["amount_before_tax"]</h3>
+                    {
+                        foreach (var top in toppings)
+                        {
+                            @top;
+                        }
+                    }
+                }
 
-<h3>Tax: @Session["tax"]</h3>
-<h3>Total: $ @Session["total"]</h3>
+                
+            </p>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Order summary</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td><strong>Item</strong></td>
+                                    <td class="text-right"><strong>Price</strong></td>
+                                    <td class="text-right"><strong>Totals</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                <tr>
+                                    <td>@Session["pizza"]</td>
+                                    <td class="text-right">$@Session["amount_before_tax"]</td>
+                                    <td class="text-right">$@Session["amount_before_tax"]</td>
+                                </tr>
+                               
+
+                                <tr>
+                                    <td class="thick-line"></td>
+                                    <td class="thick-line"></td>
+                                    <td class="thick-line text-right"><strong>Subtotal</strong></td>
+                                    <td class="thick-line text-right">$@Session["amount_before_tax"]</td>
+                                </tr>
+                                <tr>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-right"><strong>Tax</strong></td>
+                                    <td class="no-line text-right">$@Session["tax"]</td>
+                                </tr>
+                                <tr>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-right"><strong>Total</strong></td>
+                                    <td class="no-line text-right">$@Session["total"]</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
